@@ -1,11 +1,21 @@
+/* All the styling for the index.html */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barrio&family=Loved+by+the+King&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Monoton&family=Roboto+Slab:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barrio&family=Indie+Flower&family=Loved+by+the+King&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Monoton&family=Roboto+Slab:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+h1, h2 {
+    font-family: "Georgia", serif;
+}
+
 body {
-    font-family: 'Georgia', serif;
+    font-family: "Indie Flower", cursive;
+    font-style: normal;
     overflow-x: hidden;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -113,7 +123,7 @@ body {
 }
 
 .letter-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/minecraftSunset.svg');
     min-height: 100vh;
     padding: 4rem 2rem;
     display: flex;
@@ -202,6 +212,7 @@ body {
 .cake-title {
     font-size: 2.5rem;
     color: #fff;
+    padding: 3rem;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
@@ -414,7 +425,7 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    background: linear-gradient(45deg, #f9d9da, #fecfef);
+    background: linear-gradient(45deg, #fcd5d6, #fecfef);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -659,4 +670,104 @@ body {
         padding: 2rem;
         margin: 1rem;
     }
+}
+
+/* Birthday card modal styles */
+.birthday-card-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.birthday-card-content {
+    background: linear-gradient(135deg, #fffbe7 0%, #ffe0ec 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 400px;
+    width: 130vw;
+    text-align: center;
+    position: relative;
+    animation: popInCard 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes popInCard {
+    0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+    80% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.birthday-card-content h2 {
+    font-size: 2rem;
+    color: #ff6b81;
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+}
+
+.birthday-card-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 16px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 16px rgba(255,107,129,0.15);
+    border: 3px solid #fffbe7;
+}
+
+.birthday-card-content p {
+    font-size: 1.1rem;
+    color: #7d5fff;
+    margin-bottom: 1.5rem;
+    font-family: 'Georgia', serif;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ff6b81;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 10;
+}
+.close-modal:hover {
+    color: #7d5fff;
+}
+
+/* Music Button Styles */
+.music-button {
+    background: linear-gradient(45deg, #ffb347, #ff6b81);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(255,107,129,0.15);
+    margin-top: 1.5rem;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    outline: none;
+}
+.music-button:hover {
+    background: linear-gradient(45deg, #ff6b81, #ffb347);
+    box-shadow: 0 8px 24px rgba(255,107,129,0.25);
+    transform: translateY(-2px) scale(1.04);
+}
+.music-button.playing {
+    background: linear-gradient(45deg, #7d5fff, #32ff7e);
+    color: #fffbe7;
+    box-shadow: 0 0 16px 2px #7d5fff66;
 }
