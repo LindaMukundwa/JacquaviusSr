@@ -193,11 +193,11 @@
         </div>
     </div>
 
-    <!-- Hidden audio for background music -->
+    <!-- Hidden audio for kyle background music -->
     <audio id="mainSong" src="music/mainSong.mp3" loop></audio>
 
     <script>
-        // Parallax effect
+        // Parallax effect for entire window
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.parallax-bg');
@@ -209,7 +209,7 @@
             });
         });
 
-        // Intersection Observer for animations
+        // Intersection observer for the animations
         const observerOptions = {
             threshold: 0.3,
             rootMargin: '0px 0px -50px 0px'
@@ -223,7 +223,7 @@
             });
         }, observerOptions);
 
-        // Observe all content cards and letter
+        // Observes all content cards and letter
         document.querySelectorAll('.content-card, .letter, .cake-container, .carousel-container').forEach(el => {
             observer.observe(el);
         });
@@ -314,7 +314,7 @@
             const average = sum / dataArray.length;
             const volume = (average / 255) * 100;
 
-            // Update volume bar
+            // Updates volume bar
             volumeBar.style.width = volume + '%';
 
             // Check if volume is high enough (blowing sound)
@@ -329,21 +329,21 @@
         function blowOutCandles() {
             candlesBlown = true;
             
-            // Blow out candles with delay
+            // blow out candles with delay
             flames.forEach((flame, index) => {
                 setTimeout(() => {
                     flame.classList.add('blown');
                 }, index * 200);
             });
 
-            // Show wish message and then show birthday card modal
+            // shows wish message and then show birthday card modal
             setTimeout(() => {
                 const wishMessage = document.createElement('div');
                 wishMessage.className = 'wish-message';
                 //wishMessage.textContent = '✨ Make a Wish! ✨';
                 document.querySelector('.cake-section').appendChild(wishMessage);
                 
-                // Show the birthday card modal after a short delay
+                // show the birthday card modal after a short delay
                 setTimeout(() => {
                     document.getElementById('birthdayCardModal').style.display = 'flex';
                     stopListening();
@@ -361,13 +361,13 @@
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             document.getElementById('hearts').appendChild(heart);
 
-            // Remove heart after animation
+            // removes heart after animation
             setTimeout(() => {
                 heart.remove();
             }, 7000);
         }
 
-        // Create hearts periodically
+        // creates hearts periodically
         setInterval(createHeart, 2000);
 
         // Smooth scrolling for better experience
